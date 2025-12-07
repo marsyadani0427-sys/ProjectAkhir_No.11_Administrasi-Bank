@@ -279,16 +279,16 @@ def tampilkan_data_nasabah(bank):
         saldo = akun['saldo'] if akun else 0
 
         print(f"\n[{i}] No. Rek: {pengguna['no_rekening']} | Nama: {pengguna['nama']} | Saldo: Rp{saldo:,.0f}")
-        print(f"    Email: {pengguna['email']} | NIK: {pengguna['nik']} | Telp: {pengguna['no_telp']}")
+        print(f"    Email: {pengguna['email']} | NIK: {pengguna['nik']} | Telp: {pengguna['no_telp']} | Alamat: {pengguna['alamat']}")
 
 def menu_admin(bank, pengguna_admin):
     """Menu Admin (Diadaptasi dari kode 2)"""
     pin_input = input("Masukkan PIN Admin: ")
     if pin_input != PIN_ADMIN:
         print("❌ PIN Admin salah")
-        return
-
-    while True:
+        return      
+                    
+    while True:                                 
         print("\n=== MENU ADMIN ===")
         print("1. Tambah Nasabah")
         print("2. Ubah Data Nasabah (Nama/Email/Alamat)")
@@ -357,7 +357,7 @@ def menu_admin(bank, pengguna_admin):
                     akun = baca_akun(bank, t['no_rekening'])
                     pengguna_t = baca_pengguna(bank, akun['no_rekening_pengguna']) if akun else None
                     nama = pengguna_t['nama'] if pengguna_t else "Tidak ditemukan"
-                    print(f"No Rekening: {t['no_rekening']} | Nama: {nama} | Jenis: {t['jenis']} | Jumlah: Rp{t['jumlah']:,.0f} | Tanggal: {t['tanggal']}")
+            print(f"No Rekening: {t['no_rekening']} | Nama: {nama} | Jenis: {t['jenis']} | Jumlah: Rp{t['jumlah']:,.0f}")
                     
         elif pilihan == '8':
             break
